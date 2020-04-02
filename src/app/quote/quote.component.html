@@ -1,9 +1,11 @@
 <div>
-    <h1>MBigTime-Quotes</h1>
+    <h1>BigTime-Quotes</h1>
     <hr>
     <ul>
-      <li *ngFor='let quote of quotes'>
-        {{quote.name}}
-      </li>
+      <div *ngFor='let quote of quotes;let i = index'>
+        <li>{{quote.name}}</li>
+        <button (click)='toggleDetails(i)'>Details</button>
+        <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete) = 'completeQuote($event,i)'></app-quote-detail>
+      </div>
     </ul>
   </div>
