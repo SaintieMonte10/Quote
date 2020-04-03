@@ -8,11 +8,11 @@ import {Quote } from '../quote';
 })
 export class QuoteComponent implements OnInit {
   quotes: Quote[] = [
-    new Quote(1, 'Opportunity','If window of opportunity appears dont pull down the shade.',"Mercy",new Date(2019,12,14)),
+    new Quote(1, 'Opportunity','If window of opportunity appears dont pull down the shade.',"Mercy",new Date(2019,1,14)),
     new Quote(2,'Technology','Its still magic even if you know how its done',"Albert",new Date(2020,1,9)),
     new Quote(3,'Hardwork','Hardwork is the most important key to success without being willing to work hard and put everything into venture,business seccess is nearly impossible.',"Khloe",new Date(2019,6,9)),
     new Quote(4,'Friendship','A real friend is the one who walks in when the rest walk out',"Whitney",new Date(2020,2,18)),
-    new Quote(5,'Love','Love is a canvas furnished by nature and embroidered',"Gregory",new Date(2020,3,14)),
+    new Quote(5,'Love','Love is a canvas furnished by nature and embroidered',"Gregory",new Date(2030,3,14)),
   ];
   toggleDetails(index){
     this.quotes[index].showDescription = !this.quotes[index].showDescription;
