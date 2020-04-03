@@ -1,29 +1,31 @@
+<div class="container-fluid">
+  <h2 class="text-center">Create a new Quote</h2>
+  <hr>
+  <form #quoteForm='ngForm' (ngSubmit)='submitQuote()' #quoteForm='ngForm'>
+      <div class="form-group">
 
-<div>
-    <h2 class="newquote">Create a new Quote</h2>
-    
-    <form (ngSubmit)='submitQuote()' #quoteForm="ngForm">
-      <div class="form-group">
-        <label for="name">Quote title</label>
-        <input type="text" required class="form-control" [(ngModel)]="newQuote.name" name="name" #name='ngModel' placeholder="Enter the title">
-        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-          <p>Description is required</p>
-        </div>
+          <label for="name">Title</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="newQuote.name" name="name" #name='ngModel' required>
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            <p><i>Name is required</i></p>
+          </div>
       </div>
       <div class="form-group">
-        <label for="quote">Quote</label>
-        <textarea class="form-control" rows="4" required [(ngModel)]="newQuote.description" name="quote" #quote='ngModel' placeholder="Enter the quote"></textarea>
-        <div [hidden]="quote.valid || quote.pristine" class="alert alert-danger">
-          <p>Quote is required</p>
-        </div>
+
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" rows="4" [(ngModel)]="newQuote.description" name="description" #description="ngModel" required></textarea>
+          <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+            <p><i>Description is required</i></p>
+          </div>
       </div>
-      <div class="form-group ">
-        <label for="name">Author's Name</label>
-        <input type="text" required class="form-control" [(ngModel)]="newQuote.author" name="author" #author='ngModel' placeholder="Enter the author">
-        <div [hidden]="author.valid || author.pristine" class="alert alert-danger">
-          <p>Author is required</p>
-        </div>
+      <div class="form-group">
+
+          <label for="complete">Author</label>
+          <input type="text" class="form-control" id="name" [(ngModel)]="newQuote.author" name="name" #name='ngModel' required>
+          <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            <p>Author is required</p>
+          </div>
       </div>
-      <button type="submit" class="btn btn-outline-info btn-block" name="button">Add Quote</button>
-    </form>
-  </div>
+      <button type="submit" class="btn btn-success">Add a Quote</button>
+  </form>
+</div>
