@@ -3,6 +3,9 @@
     <h1>BigTime-Quotes</h1>
     <hr width="50%">
     <br>
+    <p *ngIf='quotes.length > 0'><button class="btn btn-outline-info">Check the
+      Best quote</button>
+  </p>
     <div class="row">
       <div class="col-md-6" id="quotes">
         <div *ngFor='let quote of quotes;let i = index' class="card text-white bg-info mb-3" width="50%">
