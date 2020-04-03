@@ -1,24 +1,27 @@
 <div class="body">
-  <div class="container text-center">
+  <div class="container text-center" id="myquote">
     <h1>BigTime-Quotes</h1>
     <hr width="50%">
     <br>
     <div class="row">
       <div class="col-md-6" id="quotes">
-        <div *ngFor='let quote of quotes;let i = index' class="card text-white bg-dark mb-3" width="50%">
+        <div *ngFor='let quote of quotes;let i = index' class="card text-white bg-info mb-3" width="50%">
           <div style="width:30rem">
             <div class="blockquote">
               <h6 id={{i}} appHighlight>{{quote.name}}</h6>
               <blockquote class="blockquote">
-                 <p class="mb-0 p-3">
-                  <span class="description"><i class="fa fa-quote-left fa-sm" aria-hidden="true" ></i>{{quote.description}}</span>
-                 </p>
+                <p class="mb-0 p-3">
+                  <span class="description"><i class="fa fa-quote-left fa-sm"
+                      aria-hidden="true"></i>{{quote.description}}</span>
+                </p>
               </blockquote>
             </div>
-              <i class="fa fa-thumbs-up fa-2x" style="font-size:36px;color:white" aria-hidden="true"  (click)=likebuttonclick()>{{numberoflikes}}</i>
-              <i class="fa fa-thumbs-down ml-5" style="font-size:36px;color:red" aria-hidden="true" (click)=dislikebuttonclick()>{{numberofdislikes}}</i>
-                <br>
-                <button (click)='toggleDetails(i)' class="btn btn-primary btn-sm">Details</button>
+            <i class="fa fa-thumbs-up fa-2x" style="font-size:36px;color:black" aria-hidden="true"
+              (click)=likebuttonclick()>{{numberoflikes}}</i>
+            <i class="fa fa-thumbs-down ml-5" style="font-size:36px;color:red" aria-hidden="true"
+              (click)=dislikebuttonclick()>{{numberofdislikes}}</i>
+            <br>
+            <button (click)='toggleDetails(i)' class="btn btn-primary btn-sm">Details</button>
           </div><br>
           <div *ngIf='quote.showDescription'>
             <app-quote-detail [quote]='quote' (isComplete)='deleteQuote($event,i)' appHighlight>
@@ -29,7 +32,7 @@
       <div class="col-md-6">
         <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
       </div>
-      
+
     </div>
   </div>
-  </div>
+</div>
