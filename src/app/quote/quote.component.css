@@ -1,0 +1,19 @@
+h6{
+    text-decoration: underline;
+    font-size: x-large;
+    color: bisque;
+}
+#icons{
+    text-align: center;
+}
+.description{
+    font-family: 'Noto Serif', serif;
+}
+h1{
+    font-family: 'Frijole', cursive;
+    text-decoration: underline;
+}
+#myquote{
+    background-color: black;
+    color: white;
+}
