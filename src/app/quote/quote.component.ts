@@ -1,69 +1,51 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Quote } from '../quote';
+import { Component, OnInit } from '@angular/core';
+import {Quote } from '../quote';
 
 @Component({
-  selector: 'app-quote',
-  templateUrl: './quote.component.html',
+  selector:'app-quote',
+  templateUrl:'./quote.component.html',
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
-
-  public quotes: Quote[] = [
-    new Quote(1, "Opportunity", "Don't Wait for opportunity. Create it.", "Mburia", new Date(2019, 11, 1), 0, 0),
-    new Quote(2, "Perseverance", "If you want to see the rainbow you have to put up with the rain", "Skimankings", new Date(2019, 11, 1), 0, 0),
-    new Quote(3, "Technology", "Technology is a useful servant but a dangerous master.", "Hammerton", new Date(2019, 11, 1), 0, 0),
-    new Quote(4, "Determination", " “The grass is always greener when you water it”.", "Angelo", new Date(2019, 11, 1), 0, 0),
-  ]
-  
-  addNewQuote(quote) {
-    let quoteLength = this.quotes.length;
-    quote.id = quoteLength + 1;
-    this.quotes.unshift(quote)
-  }
-
-  toggleDetails(index) {
+  quotes: Quote[] = [
+    new Quote(1, 'Opportunity','If window of opportunity appears dont pull down the shade.',"Mercy",new Date(2020,3,14)),
+    new Quote(2,'Technology','Its still magic even if you know how its done',"Albert",new Date(2020,1,9)),
+    new Quote(3,'Hardwork','Hardwork is the most important key to success without being willing to work hard and put everything into venture,business seccess is nearly impossible.',"Khloe",new Date(2019,6,9)),
+    new Quote(4,'Friendship','A real friend is the one who walks in when the rest walk out',"Whitney",new Date(2020,2,18)),
+    new Quote(5,'Love','Love is a canvas furnished by nature and embroidered',"Gregory",new Date(2030,3,14)),
+  ];
+  toggleDetails(index){
     this.quotes[index].showDescription = !this.quotes[index].showDescription;
   }
-
-  quoteDelete(isComplete, index) {
+   completeQuote(isComplete, index){
     if (isComplete) {
-      let toDelete = confirm(`You are about to delete ${this.quotes[index].name}, Would you like to continue?`)
+      this.quotes.splice(index,1);
+    }
+  }
+  deleteQuote(isComplete, index){
+    if (isComplete) {
+      let toDelete = confirm(`Are you sure you want to delete ${this.quotes[index].name}?`)
 
-      if (toDelete) {
-        this.quotes.splice(index, 1)
+      if (toDelete){
+        this.quotes.splice(index,1)
       }
     }
   }
-
-  numberOfLikes : number=0;
-  numberOfDislikes =0;
-
-  likeButtonClick(i) {
-    this.quotes[i].numberOfLikes++;
+  addNewQuote(quote){
+    let quoteLength = this.quotes.length;
+    quote.id = quoteLength+1;
+    quote.now= new Date(quote.now);
+    this.quotes.push(quote)
   }
 
-  
-
-  dislikeButtonClick(i) {
-    this.quotes[i].numberOfDislikes++;
+  numberoflikes : number=0
+  numberofdislikes : number=0
+  likebuttonclick(){
+    this.numberoflikes++;
   }
-
-  preNum:number
-  lastNum:number
-  counter:number
-
-  highestUpvote(){
-    this.preNum = 0
-    this.lastNum = 0
-
-    for(this.counter=0 ; this.counter < this.quotes.length; this.counter++) {
-      this.lastNum = this.quotes[this.counter].numberOfLikes;
-      if(this.lastNum > this.preNum){this.preNum = this.lastNum}
-    }
-    return  this.preNum
+  dislikebuttonclick(){
+    this.numberofdislikes++;
   }
-
-
   constructor() { }
 
   ngOnInit() {
