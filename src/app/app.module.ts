@@ -9,7 +9,7 @@ import { QuoteFormComponent } from './quote-form/quote-form.component';
 import { QuoteDetailComponent } from './quote-detail/quote-detail.component';
 import { DateCountPipe } from './date-count.pipe';
 import { HighlightDirective } from './highlight.directive';
-import {TimeAgoPipe} from 'time-ago-pipe'
+
 
 
 
@@ -21,7 +21,7 @@ import {TimeAgoPipe} from 'time-ago-pipe'
     QuoteDetailComponent,
     DateCountPipe,
     HighlightDirective,
-    TimeAgoPipe,
+    
     
   
   ],

@@ -1,40 +1,35 @@
 <div class="body">
-
-  <div class="container">
-
+  <div class="container text-center">
+    <h1>BigTime-Quotes</h1>
+    <hr width="50%">
+    <br>
     <div class="row">
-      <div class="col-md-7">
-        <h2 class="text-center">Quotes</h2>
-
-        <div *ngFor='let quote of quotes; let i=index'>
-          <div id="quotes" class="mt-5">
-            <p appHighlight *ngIf="highestUpvote()===quote.numberOfLikes && quote.numberOfLikes>0">
-              {{quote.theQuote}}
-            </p>
-            <p *ngIf="highestUpvote()!==quote.numberOfLikes || quote.numberOfLikes===0">{{quote.theQuote}}
-            </p>
-            <em>
-              <p class="aaa">{{quote.name}}</p>
-              
-              <i class="fa fa-quote-left"></i><p>{{quote.description}}</p><i class="fa fa-quote-right"></i>
-            </em>
-            <div>
-
-              <i class="fa fa-thumbs-up icon fa-2x" aria-hidden="true" (click)="likeButtonClick(i)"></i>
-              <i class="fa fa-thumbs-down ml-5 icons fa-2x" aria-hidden="true" (click)="dislikeButtonClick(i)"></i>
-              <p><strong>Like:</strong>{{quote.numberOfLikes}}
-                <span><strong>Dislike:</strong>{{quote.numberOfDislikes}}</span></p>
+      <div class="col-md-6" id="quotes">
+        <div *ngFor='let quote of quotes;let i = index' class="card text-white bg-dark mb-3" width="50%">
+          <div style="width:30rem">
+            <div class="blockquote">
+              <h6 id={{i}} appHighlight>{{quote.name}}</h6>
+              <blockquote class="blockquote">
+                 <p class="mb-0 p-3">
+                  <span class="description"><i class="fa fa-quote-left fa-sm" aria-hidden="true" ></i>{{quote.description}}</span>
+                 </p>
+              </blockquote>
             </div>
-
-            <button (click)='toggleDetails(i)' class="btn btn-outline-info">Show-Details</button>
-            <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='quoteDelete($event,i)'>
-            </app-quote-detail>
+              <i class="fa fa-thumbs-up fa-2x" style="font-size:36px;color:white" aria-hidden="true"  (click)=likebuttonclick()>{{numberoflikes}}</i>
+              <i class="fa fa-thumbs-down ml-5" style="font-size:36px;color:red" aria-hidden="true" (click)=dislikebuttonclick()>{{numberofdislikes}}</i>
+                <br>
+                <button (click)='toggleDetails(i)' class="btn btn-primary btn-sm">Details</button>
+          </div><br>
+          <div *ngIf='quote.showDescription'>
+            <app-quote-detail [quote]='quote' (isComplete)='deleteQuote($event,i)' appHighlight>
+              {{quote.now|date|uppercase}}</app-quote-detail>
           </div>
         </div>
       </div>
-      <div class="col-md-5" id="">
+      <div class="col-md-6">
         <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
       </div>
+      
     </div>
   </div>
-</div>
+  </div>
