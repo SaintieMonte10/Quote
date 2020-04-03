@@ -1,3 +1,2 @@
-<p> By {{quote.author}} <br>Posted {{quote.postDate|date:'medium'}}</p> 
-<button class=" btn btn-outline-danger mb-3" (click)='quoteDelete(true)' >Delete-Quote</button>
-<!-- Posted on {{quote.postDate|date}} -->
+<p>This quote was posted on {{quote.now|date:'medium'}} <br> By :{{quote.author}}</p>
+<button (click)= 'quoteDelete(true)' class="btn btn-outline-danger">Delete</button>
