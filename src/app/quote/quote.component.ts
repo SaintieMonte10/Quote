@@ -6,6 +6,7 @@ import {Quote } from '../quote';
   templateUrl:'./quote.component.html',
   styleUrls: ['./quote.component.css']
 })
+
 export class QuoteComponent implements OnInit {
   quotes: Quote[] = [
     new Quote(1, 'Opportunity','If window of opportunity appears dont pull down the shade.',"Mercy",new Date(2019,1,14)),
@@ -14,14 +15,17 @@ export class QuoteComponent implements OnInit {
     new Quote(4,'Friendship','A real friend is the one who walks in when the rest walk out',"Whitney",new Date(2020,2,18)),
     new Quote(5,'Love','Love is a canvas furnished by nature and embroidered',"Gregory",new Date(2030,3,14)),
   ];
+
   toggleDetails(index){
     this.quotes[index].showDescription = !this.quotes[index].showDescription;
   }
+
    completeQuote(isComplete, index){
     if (isComplete) {
       this.quotes.splice(index,1);
     }
   }
+
   deleteQuote(isComplete, index){
     if (isComplete) {
       let toDelete = confirm(`Are you sure you want to delete ${this.quotes[index].name}?`)
@@ -31,6 +35,7 @@ export class QuoteComponent implements OnInit {
       }
     }
   }
+
   addNewQuote(quote){
     let quoteLength = this.quotes.length;
     quote.id = quoteLength+1;
@@ -38,7 +43,6 @@ export class QuoteComponent implements OnInit {
     this.quotes.push(quote)
   }
 
- 
   constructor() { }
 
   ngOnInit() {

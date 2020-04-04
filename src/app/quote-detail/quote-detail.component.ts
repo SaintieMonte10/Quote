@@ -5,6 +5,7 @@ import { Quote } from '../quote';
   templateUrl: './quote-detail.component.html',
   styleUrls: ['./quote-detail.component.css']
 })
+
 export class QuoteDetailComponent implements OnInit {
 
   @Input() quote: Quote;
