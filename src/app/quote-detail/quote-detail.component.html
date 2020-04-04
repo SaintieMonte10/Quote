@@ -1,2 +1,8 @@
+<i class="fa fa-thumbs-up fa-2x" style="font-size:36px;color:black" aria-hidden="true"
+              (click)=likebuttonclick()>{{numberoflikes}}</i>
+            <i class="fa fa-thumbs-down ml-5" style="font-size:36px;color:red" aria-hidden="true"
+              (click)=dislikebuttonclick()>{{numberofdislikes}}</i>
+            <br>
+
 <p>This quote was posted on {{quote.now|date:'medium'}} <br> By :{{quote.author}}</p>
 <button (click)= 'quoteDelete(true)' class="btn btn-outline-danger">Delete</button>

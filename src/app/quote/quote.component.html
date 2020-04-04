@@ -19,11 +19,7 @@
                 </p>
               </blockquote>
             </div>
-            <i class="fa fa-thumbs-up fa-2x" style="font-size:36px;color:black" aria-hidden="true"
-              (click)=likebuttonclick()>{{numberoflikes}}</i>
-            <i class="fa fa-thumbs-down ml-5" style="font-size:36px;color:red" aria-hidden="true"
-              (click)=dislikebuttonclick()>{{numberofdislikes}}</i>
-            <br>
+            
             <button (click)='toggleDetails(i)' class="btn btn-primary btn-sm">Details</button>
           </div><br>
           <div *ngIf='quote.showDescription'>
